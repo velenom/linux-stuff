@@ -1,0 +1,12 @@
+[Unit]
+Description=Reset touchpad driver
+After=app-libinput\x2dgestures@autostart.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/scripts/reset-touchpad-driver.sh
+RemainAfterExit=true
+StandardOutput=journal
+
+[Install]
+WantedBy=multi-user.target
