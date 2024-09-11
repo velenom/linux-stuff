@@ -46,14 +46,16 @@ The device ID is **05ac:0265**
 
 `hid-multitouch` is a generic driver (I guess?). What we're after is `magicmouse`
 
-### Add a script to remove and re-add the driver module
+### Add a script and a systemd service
 
-As shown in `reset-touchpad-driver.sh`, change the driver name to match your driver. Make this script executable
+- See `reset-touchpad-driver.sh`, change the driver name to match your driver. Make this script executable and owned by root. This script forces reloading the driver
+- Add `reset-touchpad-driver.service` to `/etc/systemd/system`. Change the path to the script as needed.
 
-### Add a systemd service
-Add `reset-touchpad-driver.service` to `/etc/systemd/system/service`,
+Both scripts should be owned by root.
 
 ### Run the service and make it run at startup
+
+Now you can start the service and enable it to start on boot
 
 ```
 ~ > systemctl start restart-touchpad-service
