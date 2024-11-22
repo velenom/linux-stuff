@@ -1,0 +1,7 @@
+[Unit]
+Description=Create a system backup and install software updates
+
+[Service]
+Type=oneshot
+ExecStart=/usr/scripts/backup-and-update.sh
+RemainAfterExit=no

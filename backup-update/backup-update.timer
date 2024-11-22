@@ -1,0 +1,10 @@
+[Unit]
+Description=Run backup and update weekly
+
+[Timer]
+#Execute job if it missed a run due to machine being off
+Persistent=true
+OnCalendar=weekly
+
+[Install]
+WantedBy=timers.target
